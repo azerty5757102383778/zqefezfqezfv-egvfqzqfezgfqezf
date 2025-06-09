@@ -99,6 +99,11 @@
             justify-content: space-between;
         }
 
+        .tool-card.coming-soon {
+            border-color: rgba(255, 193, 7, 0.3);
+            background: rgba(255, 193, 7, 0.05);
+        }
+
         .tool-card::before {
             content: '';
             position: absolute;
@@ -109,7 +114,11 @@
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
         }
 
-        .tool-card:hover {
+        .tool-card.coming-soon::before {
+            background: linear-gradient(90deg, transparent, rgba(255, 193, 7, 0.5), transparent);
+        }
+
+        .tool-card:not(.coming-soon):hover {
             background: rgba(255, 255, 255, 0.08);
             border-color: rgba(255, 255, 255, 0.2);
             transform: translateY(-5px);
@@ -153,6 +162,49 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(79, 70, 229, 0.4);
             background: linear-gradient(135deg, #5b52e8 0%, #8b4cf0 100%);
+        }
+
+        .tool-btn.soon-btn {
+            background: linear-gradient(135deg, #ffc107 0%, #ff8f00 100%);
+            cursor: not-allowed;
+            position: relative;
+            overflow: hidden;
+            animation: pulse-glow 2s infinite;
+        }
+
+        .tool-btn.soon-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        .tool-btn.soon-btn:hover {
+            transform: none;
+            box-shadow: none;
+            background: linear-gradient(135deg, #ffc107 0%, #ff8f00 100%);
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(255, 193, 7, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(255, 193, 7, 0.6);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                left: -100%;
+            }
+            100% {
+                left: 100%;
+            }
         }
 
         /* Responsive design */
@@ -225,7 +277,7 @@
         <div class="header">
             <h1 class="main-title">Ready to get started?</h1>
             <p class="subtitle">
-                Explore Our Suite of Tools: We proudly offer a collection of 9<br>
+                Explore Our Suite of Tools: We proudly offer a collection of 10<br>
                 highly efficient tools, each expertly designed to enhance your<br>
                 Roblox experience.
             </p>
@@ -278,6 +330,14 @@
                     <p class="tool-description">Join anyone on Roblox.</p>
                 </div>
                 <a href="gamejoiner.html" class="tool-btn">Get Started</a>
+            </div>
+            
+            <div class="tool-card coming-soon">
+                <div class="tool-content">
+                    <h3 class="tool-title">Group Members</h3>
+                    <p class="tool-description">Boost your group's member count automatically.</p>
+                </div>
+                <button class="tool-btn soon-btn" disabled>Soon</button>
             </div>
         </div>
     </div>
